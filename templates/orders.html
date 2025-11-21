@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">📦 Orders</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <button id="btn-orders" class="nav-btn active">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">All Orders</span>
+                </button>
+                <button id="btn-add-order" class="nav-btn">
+                    <span class="nav-icon">➕</span>
+                    <span class="nav-text">New Order</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="order-count" class="order-stats">0 orders</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Orders List View -->
+            <section id="order-list-content" class="content-section active">
+                <div class="section-header">
+                    <h2>All Orders</h2>
+                    <div id="pagination" class="pagination">
+                        <!-- Pagination will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div id="orders-container" class="orders-grid">
+                    <!-- Orders will be populated by JavaScript from localStorage -->
+                </div>
+            </section>
+
+            <!-- Add Order View -->
+            <section id="add-order-content" class="content-section">
+                <div class="section-header">
+                    <h2>Create New Order</h2>
+                </div>
+                <div class="form-container">
+                    <form id="add-order-form" class="modern-form">
+                        <div class="form-group">
+                            <label for="user_id">
+                                <span class="label-icon">👤</span>
+                                User ID
+                            </label>
+                            <input type="text" id="user_id" name="user_id" placeholder="Enter user ID" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product_code">
+                                <span class="label-icon">🏷️</span>
+                                Product Code
+                            </label>
+                            <input type="text" id="product_code" name="product_code" placeholder="Enter product code" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product_quantity">
+                                <span class="label-icon">🔢</span>
+                                Quantity
+                            </label>
+                            <input type="number" id="product_quantity" name="product_quantity" min="1" placeholder="Enter quantity" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="order_date">
+                                    <span class="label-icon">📅</span>
+                                    Order Date
+                                </label>
+                                <input type="date" id="order_date" name="order_date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="store_code">
+                                    <span class="label-icon">🏪</span>
+                                    Store Code
+                                </label>
+                                <input type="text" id="store_code" name="store_code" placeholder="Store code" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Create Order</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
