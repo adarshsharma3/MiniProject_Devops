@@ -61,16 +61,6 @@ jobs:
       run: |
         pytest tests/ -v --cov=app --cov-report=term-missing --cov-report=xml
     
-    # Upload the test coverage report (coverage.xml) to Codecov.
-    # This gives a visual dashboard showing how much of the code is tested.
-    # The upload will NOT fail the CI pipeline even if Codecov is unavailable.
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false  
 
   # Security Scanning
   security:
